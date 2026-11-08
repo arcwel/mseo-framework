@@ -1,0 +1,8 @@
+"# mseo.ads_sheet/1","","","","","",""
+"customer_id","111-222-3333","","","","",""
+"period","2026-10-26","2026-11-01","","","",""
+"generated","2026-11-02T10:05:00Z","","","","",""
+"campaign.name","ad_group.name","ad_group.status","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions"
+"Synthetic Repairs","Dent Repair","ENABLED","120000000","40","1600","5"
+"Synthetic Repairs","Bumper Repair","ENABLED","62350000","21","810","1.5"
+"Synthetic Paint","Paint Jobs","ENABLED","41200000","18","900","0"

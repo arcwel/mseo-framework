@@ -1,0 +1,40 @@
+{
+  "claims": [
+    "complimentary estimate"
+  ],
+  "business": {
+    "checked": "2026-11-02 from https://example-shop.test/contact/",
+    "phone": "(707) 555-0142",
+    "locations": [
+      {
+        "label": "Oak Road",
+        "address": "12 Oak Rd, Testville, CA 95000"
+      },
+      {
+        "label": "Elm Ave",
+        "address": "340 Elm Ave, Testville, CA 95001"
+      }
+    ],
+    "hours": [
+      {
+        "days": "Mon-Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "days": "Fri",
+        "opens": "08:00",
+        "closes": "16:30"
+      },
+      {
+        "days": "Sat-Sun",
+        "closed": true
+      }
+    ]
+  },
+  "author": {
+    "name": "Pat Fixture",
+    "role": "owner and lead estimator",
+    "url": "https://example-shop.test/about/"
+  }
+}

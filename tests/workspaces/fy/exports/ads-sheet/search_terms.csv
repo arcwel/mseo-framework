@@ -1,0 +1,8 @@
+"# mseo.ads_sheet/1","","","","","","","",""
+"customer_id","222-333-4444","","","","","","",""
+"period","2026-10-26","2026-11-01","","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","","",""
+"campaign.name","ad_group.name","search_term_view.search_term","search_term_view.status","segments.search_term_match_type","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions"
+"Sample Checkups","Checkups","teeth cleaning sampleton","ADDED","EXACT","60000000","28","1000","3"
+"Sample Checkups","Checkups","dentist near me","NONE","PHRASE","28400000","12","500","0"
+"Sample Whitening","Whitening","teeth whitening cost","NONE","PHRASE","22000000","11","400","1"

@@ -1,0 +1,76 @@
+{
+ "_help": "Campaign-level negative keyword seeds for any local service business. Match type per entry. A workspace picks a list with ads.negative_seed_list.",
+ "list": "generic",
+ "negatives": [
+  {
+   "text": "free",
+   "match": "broad",
+   "why": "freebie seekers"
+  },
+  {
+   "text": "diy",
+   "match": "broad",
+   "why": "do-it-yourself intent"
+  },
+  {
+   "text": "how to",
+   "match": "phrase",
+   "why": "informational"
+  },
+  {
+   "text": "jobs",
+   "match": "broad",
+   "why": "job seekers"
+  },
+  {
+   "text": "careers",
+   "match": "broad",
+   "why": "job seekers"
+  },
+  {
+   "text": "salary",
+   "match": "broad",
+   "why": "job seekers"
+  },
+  {
+   "text": "training",
+   "match": "broad",
+   "why": "students"
+  },
+  {
+   "text": "school",
+   "match": "broad",
+   "why": "students"
+  },
+  {
+   "text": "course",
+   "match": "broad",
+   "why": "students"
+  },
+  {
+   "text": "wholesale",
+   "match": "broad",
+   "why": "trade buyers"
+  },
+  {
+   "text": "youtube",
+   "match": "broad",
+   "why": "video intent"
+  },
+  {
+   "text": "reddit",
+   "match": "broad",
+   "why": "forum intent"
+  },
+  {
+   "text": "meaning",
+   "match": "broad",
+   "why": "dictionary intent"
+  },
+  {
+   "text": "definition",
+   "match": "broad",
+   "why": "dictionary intent"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+# Business Profile post template: update. Delete every line that starts with #. Rules: templates/posts/README.md.
+# Core: 100-300 words, under 1,500 characters, one idea, no phone number, no price or promise outside facts.json,
+# {{service}} named once, {{area}} named once, one plain "what to do next" line. Opening pattern: {{opening}}.
+# Length band: {{length_band}}. Closing: {{closing}}. Image: {{image}} (alt text in the sidecar).
+# Opening: what changed (a fact: new hours, a new capability, a confirmed certification from facts.json).
+###WRITE###
+
+# Why it matters to a reader in {{area}}, two sentences.
+###WRITE###
+
+# Closing line ({{closing}}).
+###WRITE###

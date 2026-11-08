@@ -1,0 +1,8 @@
+"# mseo.ads_sheet/1","","","","","","","","","","","","",""
+"customer_id","111-222-3333","","","","","","","","","","","",""
+"period","2026-10-26","2026-11-01","","","","","","","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","","","","","","","",""
+"campaign.name","campaign.advertising_channel_type","campaign.status","campaign.bidding_strategy_type","campaign_budget.amount_micros","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions","metrics.conversions_value","metrics.phone_calls","metrics.search_impression_share","metrics.search_budget_lost_impression_share","metrics.search_rank_lost_impression_share"
+"Synthetic Repairs","SEARCH","ENABLED","MAXIMIZE_CONVERSIONS","25000000","182350000","61","2410","6.5","0","9","0.4123","0.3105","0.1012"
+"Synthetic Paint","SEARCH","ENABLED","MANUAL_CPC","10000000","41200000","18","900","0","0","0","0.21","0.05","0.3"
+"Synthetic Brand","SEARCH","PAUSED","MANUAL_CPC","5000000","0","0","0","0","0","0","","",""

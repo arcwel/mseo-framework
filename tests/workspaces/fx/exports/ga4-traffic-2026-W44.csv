@@ -1,0 +1,24 @@
+# ----------------------------------------
+# Traffic acquisition: Session primary channel group (Default Channel Group)
+# Account: Example Shop
+# Property: Example Shop - GA4
+# ----------------------------------------
+#
+# Start date: 20261026
+# End date: 20261101
+
+Date,Session primary channel group (Default Channel Group),Sessions,Engaged sessions,Key events,Total users
+20261026,Organic Search,20,17,1,19
+20261026,Direct,10,10,0,10
+20261027,Organic Search,21,18,1,20
+20261027,Direct,11,10,0,11
+20261028,Organic Search,22,19,1,21
+20261028,Direct,12,10,0,12
+20261029,Organic Search,23,20,1,22
+20261029,Direct,13,10,0,13
+20261030,Organic Search,24,21,1,23
+20261030,Direct,14,10,0,14
+20261031,Organic Search,25,22,1,24
+20261031,Direct,15,10,0,15
+20261101,Organic Search,26,23,1,25
+20261101,Direct,16,10,0,16

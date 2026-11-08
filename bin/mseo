@@ -1,0 +1,9 @@
+#!/bin/sh
+# Runs the framework from its locked venv without syncing it, so a sandboxed run never writes to the framework repo.
+# `mseo workspace seal` builds the venv first (uv sync --locked).
+MSEO_HOME="${MSEO_HOME:-$(cd "$(dirname "$0")/.." && pwd)}"
+export PYTHONDONTWRITEBYTECODE=1
+if [ -x "$MSEO_HOME/.venv/bin/mseo" ]; then
+  exec "$MSEO_HOME/.venv/bin/mseo" "$@"
+fi
+exec uv run --project "$MSEO_HOME" --frozen --no-sync mseo "$@"

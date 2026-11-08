@@ -1,0 +1,15 @@
+{
+  "_note": "Per metric: exact (no difference), absolute (|a-b| <= value) or relative (|a-b| <= value * |b|). The values hold the UI's own rounding (CTR to 0.1 point, position to 0.1, money to the cent). \"page\": \"optional\" marks a metric the page leaves blank in its total row (Ads Report Editor does): a missing page value does not leave the week incomplete.",
+  "search_console.clicks": {"kind": "exact", "value": 0},
+  "search_console.impressions": {"kind": "exact", "value": 0},
+  "search_console.ctr": {"kind": "absolute", "value": 0.0006},
+  "search_console.position": {"kind": "absolute", "value": 0.06},
+  "ga4.sessions": {"kind": "exact", "value": 0},
+  "ga4.engagedSessions": {"kind": "exact", "value": 0},
+  "ga4.keyEvents": {"kind": "absolute", "value": 0.01},
+  "google_ads.cost": {"kind": "absolute", "value": 0.011},
+  "google_ads.clicks": {"kind": "exact", "value": 0, "page": "optional"},
+  "google_ads.impressions": {"kind": "exact", "value": 0},
+  "google_ads.conversions": {"kind": "absolute", "value": 0.011},
+  "google_ads.calls": {"kind": "exact", "value": 0, "page": "optional"}
+}

@@ -1,0 +1,13 @@
+{
+  "file": "good_gbp.txt",
+  "sha256": "6d7811dbc2a3a6e27a9932aeccad0296edb42c00229cccd008073f1c128bcce4",
+  "rewritten": true,
+  "before": 3,
+  "after": 5,
+  "passed": true,
+  "rival": "codex",
+  "model": "gpt-5-codex",
+  "humanizer_brief": "live",
+  "error": null,
+  "at": "2026-11-02T09:00:00-08:00"
+}

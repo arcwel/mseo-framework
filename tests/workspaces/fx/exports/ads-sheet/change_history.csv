@@ -1,0 +1,7 @@
+"# mseo.ads_sheet/1","","","","",""
+"customer_id","111-222-3333","","","",""
+"period","2026-10-26","2026-11-01","","",""
+"generated","2026-11-02T10:05:00Z","","","",""
+"change_event.change_date_time","change_event.user_email","change_event.change_resource_type","change_event.resource_change_operation","change_event.client_type","campaign.name"
+"2026-10-27 09:14:02","agent-fx@agency.example","CAMPAIGN_BUDGET","UPDATE","GOOGLE_ADS_WEB_CLIENT","Synthetic Repairs"
+"2026-10-30 16:40:11","agent-fx@agency.example","AD_GROUP_CRITERION","CREATE","GOOGLE_ADS_SCRIPTS","Synthetic Paint"

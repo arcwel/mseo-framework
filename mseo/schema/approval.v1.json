@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "mseo.approval/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "batch_id",
+    "workspace",
+    "approved_by",
+    "approved_at",
+    "items",
+    "batch_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mseo.approval/1"
+    },
+    "batch_id": {
+      "type": "string"
+    },
+    "workspace": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "n",
+          "item_hash"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer"
+          },
+          "item_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "rejected": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "batch_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "tty": {
+      "type": "boolean"
+    },
+    "rows_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

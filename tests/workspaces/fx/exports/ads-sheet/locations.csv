@@ -1,0 +1,8 @@
+"# mseo.ads_sheet/1","","","","","","","","","",""
+"customer_id","111-222-3333","","","","","","","","",""
+"period","2026-10-26","2026-11-01","","","","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","","","","",""
+"campaign.name","geographic_view.country_criterion_id","geographic_view.location_type","segments.geo_target_city","segments.geo_target_state","city_name","state_name","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions"
+"Synthetic Repairs","2840","LOCATION_OF_PRESENCE","geoTargetConstants/109193","geoTargetConstants/209193","Testville","California","150000000","50","2000","6.5"
+"Synthetic Repairs","2840","LOCATION_OF_PRESENCE","geoTargetConstants/109359","geoTargetConstants/209359","Reno","Nevada","32350000","11","410","0"
+"Synthetic Paint","2840","LOCATION_OF_PRESENCE","geoTargetConstants/109193","geoTargetConstants/209193","Testville","California","41200000","18","900","0"

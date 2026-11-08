@@ -1,0 +1,8 @@
+"# mseo.ads_sheet/1","","","","","","","","","","",""
+"customer_id","222-333-4444","","","","","","","","","",""
+"period","2026-10-26","2026-11-01","","","","","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","","","","","",""
+"campaign.name","ad_group.name","ad_group_criterion.keyword.text","ad_group_criterion.keyword.match_type","ad_group_criterion.status","ad_group_criterion.quality_info.quality_score","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions","metrics.ctr","metrics.average_cpc"
+"Sample Checkups","Checkups","teeth cleaning sampleton","EXACT","ENABLED","7","60000000","28","1000","3","0.028","2142857"
+"Sample Checkups","Checkups","family dentist","PHRASE","ENABLED","5","28400000","12","500","0","0.024","2366666"
+"Sample Whitening","Whitening","teeth whitening","PHRASE","ENABLED","6","22000000","11","400","1","0.0275","2000000"

@@ -1,0 +1,1 @@
+{"radius_miles": 20, "places": [{"name": "Testville", "type": "city", "county": "Test County", "miles": {"Oak Road": 0.0, "Elm Ave": 1.2}, "official_site": "https://testville.example.gov/", "checked": "2026-11-02"}], "agencies": [], "event_organizers": []}

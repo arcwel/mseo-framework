@@ -1,0 +1,12 @@
+# Business Profile post template: service-spotlight. Delete every line that starts with #. Rules: templates/posts/README.md.
+# Core: 100-300 words, under 1,500 characters, one idea, no phone number, no price or promise outside facts.json,
+# {{service}} named once, {{area}} named once, one plain "what to do next" line. Opening pattern: {{opening}}.
+# Length band: {{length_band}}. Closing: {{closing}}. Image: {{image}} (alt text in the sidecar).
+# Opening: one question a reader asks about {{service}}.
+###WRITE###
+
+# The answer in two or three sentences; one fact from facts.json; what the reader will notice.
+###WRITE###
+
+# Closing line ({{closing}}). Use the Call or Learn more button; no number in the text.
+###WRITE###

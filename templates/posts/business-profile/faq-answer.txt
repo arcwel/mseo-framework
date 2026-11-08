@@ -1,0 +1,12 @@
+# Business Profile post template: faq-answer. Delete every line that starts with #. Rules: templates/posts/README.md.
+# Core: 100-300 words, under 1,500 characters, one idea, no phone number, no price or promise outside facts.json,
+# {{service}} named once, {{area}} named once, one plain "what to do next" line. Opening pattern: {{opening}}.
+# Length band: {{length_band}}. Closing: {{closing}}. Image: {{image}} (alt text in the sidecar).
+# Opening: the question exactly as people ask it (from Search Console or the FAQ of a published article).
+###WRITE###
+
+# The answer first, then one reason, then one exception. All facts from facts.json.
+###WRITE###
+
+# Closing line ({{closing}}): where to read more (the article link) or what to do next.
+###WRITE###

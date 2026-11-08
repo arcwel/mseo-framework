@@ -1,0 +1,7 @@
+"# mseo.ads_sheet/1","","","","","","","","","",""
+"customer_id","222-333-4444","","","","","","","","",""
+"period","2026-10-26","2026-11-01","","","","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","","","","",""
+"campaign.name","geographic_view.country_criterion_id","geographic_view.location_type","segments.geo_target_city","segments.geo_target_state","city_name","state_name","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions"
+"Sample Checkups","2840","LOCATION_OF_PRESENCE","geoTargetConstants/109241","geoTargetConstants/209241","Sampleton","Oregon","88400000","40","1500","3"
+"Sample Whitening","2840","LOCATION_OF_PRESENCE","geoTargetConstants/109241","geoTargetConstants/209241","Sampleton","Oregon","22000000","11","400","1"

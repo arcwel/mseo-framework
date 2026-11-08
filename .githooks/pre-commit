@@ -1,0 +1,6 @@
+#!/bin/sh
+# Customer-string and industry-vocabulary lints with the real workspaces present (enable with: git config core.hooksPath .githooks).
+top="$(git rev-parse --show-toplevel)" || exit 3
+(cd "$top" && uv run --frozen --no-sync ruff check mseo tests) || exit $?
+"$top/bin/mseo" lint customer-strings --repo "$top" || exit $?
+exec "$top/bin/mseo" lint vocabulary --repo "$top"

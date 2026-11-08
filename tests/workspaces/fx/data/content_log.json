@@ -1,0 +1,12 @@
+{
+ "updated": "2026-11-02",
+ "window_days": 60,
+ "articles": [
+  {"type": "article", "slug": "good-article", "title": "Where to Get Your Car Fixed in Testville", "date": "2026-11-05",
+   "status": "draft", "blocks": ["answer", "scenario", "decisions", "checklist", "local", "faq", "author", "cta", "sources"], "shape": "scenario-led",
+   "intro": "bold-two-sentences", "list": "numbered", "faq_n": 3, "cta": "end", "title_pattern": "Where/When/How question"}
+ ],
+ "gbp": [
+  {"date": "2026-11-05", "status": "draft", "theme": "rain checklist", "headline": "rain is on the way in testville so here is a quick checklist", "claims": []}
+ ]
+}

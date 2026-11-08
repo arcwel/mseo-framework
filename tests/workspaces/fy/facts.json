@@ -1,0 +1,37 @@
+{
+  "claims": [
+    "comfortable cleanings",
+    "new patients welcome"
+  ],
+  "business": {
+    "checked": "2026-11-02 from https://example-dental.test/contact/",
+    "phone": "(503) 555-0187",
+    "locations": [
+      {
+        "label": "Birch Street",
+        "address": "88 Birch St, Sampleton, OR 97000"
+      }
+    ],
+    "hours": [
+      {
+        "days": "Mon-Thu",
+        "opens": "07:30",
+        "closes": "16:00"
+      },
+      {
+        "days": "Fri",
+        "opens": "07:30",
+        "closes": "12:00"
+      },
+      {
+        "days": "Sat-Sun",
+        "closed": true
+      }
+    ]
+  },
+  "author": {
+    "name": "Dr. Sam Sample",
+    "role": "dentist and practice owner",
+    "url": "https://example-dental.test/about/"
+  }
+}

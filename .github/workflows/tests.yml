@@ -1,0 +1,47 @@
+name: tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Every action is pinned to a full commit SHA (audit 34); the comment names the tag it was resolved from.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5
+      - run: uv sync --locked
+      - run: uv run ruff check mseo tests
+      - run: uv run pytest -q -m "not mac_live"
+      - run: uv run mseo lint customer-strings
+        env:
+          MSEO_WORKSPACES: ${{ runner.temp }}/no-real-workspaces
+      - run: uv run mseo lint vocabulary
+        env:
+          MSEO_WORKSPACES: ${{ runner.temp }}/no-real-workspaces
+      - name: legacy env vars and credential dotfiles stay out of the framework
+        run: |
+          if git grep -nE 'WP_(SITE|USER|APP_PASSWORD)|GEMINI_API_KEY|[A-Z]+_APP_PASSWORD|-wp\.env|-gemini\.env' -- . ':!.github/workflows/tests.yml' ':!tests/test_env_grep.py'; then
+            echo "legacy variable or dotfile found"; exit 1
+          fi
+  secrets:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read  # gitleaks-action lists the PR's commits on pull_request events
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks (full history; allowlist in .gitleaks.toml)
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
+          # the action's PR comments and artifact upload need write scopes this job does not grant
+          GITLEAKS_ENABLE_COMMENTS: "false"
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"
+          GITLEAKS_ENABLE_SUMMARY: "true"

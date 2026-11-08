@@ -1,0 +1,14 @@
+# gitleaks for the mseo framework (audit 34). The default rules apply; the synthetic workspaces under tests/ carry
+# made-up IDs and app-password-shaped strings on purpose, so they are allowlisted by path.
+title = "mseo"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "synthetic fixtures and recorded test data; no real credential lives in the framework repo"
+paths = [
+  '''^tests/workspaces/.*''',
+  '''^tests/.*\.py$''',
+  '''^uv\.lock$''',
+]

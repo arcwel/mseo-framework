@@ -1,0 +1,1 @@
+# Allowed customer-string hits, one per line: <path>:<line or *> <value> # <reason>   (the reason is required)

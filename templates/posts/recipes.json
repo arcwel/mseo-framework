@@ -1,0 +1,74 @@
+{
+  "_help": "Variation axes for articles and Business Profile posts. `mseo content recipe` picks the next value on each axis, most different from the last `window` logged posts; the variation gate recomputes them from the draft. Block names must stay in sync with the templates under templates/posts/.",
+  "schema_version": "mseo.recipes/1",
+  "window": 6,
+  "max_shared_axes_with_previous": 2,
+  "blocks": ["answer", "steps", "why", "questions", "table", "right", "read", "myths", "what-it-means", "scenario",
+             "how-to-choose", "decisions", "checklist", "cost", "timeline", "local", "signs", "mistakes", "faq", "author", "cta", "sources"],
+  "article": {
+    "shapes": {
+      "steps-first":    ["answer", "steps", "why", "local", "questions", "faq", "author", "cta", "sources"],
+      "questions-led":  ["answer", "questions", "table", "right", "local", "read", "faq", "cta", "author", "sources"],
+      "myth-vs-fact":   ["answer", "myths", "what-it-means", "scenario", "local", "faq", "author", "cta", "sources"],
+      "compare-table":  ["answer", "table", "how-to-choose", "local", "scenario", "faq", "cta", "author", "sources"],
+      "scenario-led":   ["answer", "scenario", "decisions", "checklist", "local", "faq", "author", "cta", "sources"],
+      "cost-and-time":  ["answer", "cost", "timeline", "what-it-means", "local", "faq", "cta", "author", "sources"],
+      "checklist-led":  ["answer", "checklist", "mistakes", "local", "why", "faq", "author", "cta", "sources"],
+      "signs-and-next": ["answer", "signs", "decisions", "local", "steps", "faq", "cta", "author", "sources"]
+    },
+    "axes": {
+      "title_pattern": {"values": ["how-what-when-question", "number-plus-noun", "plain-statement", "x-vs-y", "should-you", "local-led"], "avoid_last": 2},
+      "intro":         {"values": ["bold-two-sentences", "bold-one-line-plus-number", "bold-answer-then-why", "scenario-then-bold-answer"], "avoid_last": 2},
+      "evidence":      {"values": ["table", "numbered-steps", "checklist", "worked-scenario"], "avoid_last": 2},
+      "faq_n":         {"values": [3, 4, 5, 6], "avoid_last": 2},
+      "cta":           {"values": ["end", "after-answer-and-end", "mid-and-end"], "avoid_last": 1},
+      "word_band":     {"values": ["700-900", "900-1100", "1100-1400"], "max_run": 2},
+      "local_placement": {"values": ["in-answer", "own-section", "in-faq", "in-close"], "avoid_last": 2},
+      "closing":       {"values": ["one-line-summary", "next-step", "question-back", "local-fact-restated"], "avoid_last": 2}
+    },
+    "h2_lead_max_share": 0.5,
+    "answer_words": [40, 80],
+    "opening_unique_words": 8,
+    "proof_items_min": 3,
+    "proof_items": ["fact-number", "local-place", "named-source", "table-or-list", "scenario", "photo-or-illustration"],
+    "internal_links_min": 3,
+    "sources_min": 1
+  },
+  "lexicon": {
+    "_help": "Lead words per language (ISO 639-1). The draft's language is its <!-- lang: xx --> comment, else its FAQ heading, else en. question_leads: first title word that makes a how/what/when question. should_leads: the should-you title pattern. versus_markers: the x-vs-y pattern. next_step_leads: first word of a closing line that is a next step. scenario_leads: first word of a Business Profile opening that sets a scene. h2_lead_words: the words H2 questions rotate between.",
+    "en": {
+      "question_leads": ["how", "what", "when"],
+      "should_leads": ["should"],
+      "versus_markers": [" vs ", " vs. ", " versus "],
+      "next_step_leads": ["book", "call", "request", "visit", "start", "bring", "use", "schedule", "ask", "send", "get", "tap",
+                          "read", "check", "stop", "come", "see", "contact", "fill", "drop", "pick"],
+      "scenario_leads": ["when", "if", "imagine", "picture", "it's", "its", "as", "after", "before", "every", "this", "last",
+                         "that", "you", "your"],
+      "h2_lead_words": ["how", "what", "when", "why", "can", "should", "which", "where"]
+    },
+    "es": {
+      "question_leads": ["cómo", "como", "qué", "que", "cuándo", "cuando"],
+      "should_leads": ["debería", "deberia", "debe", "conviene"],
+      "versus_markers": [" vs ", " vs. ", " versus ", " frente a ", " contra "],
+      "next_step_leads": ["reserve", "reserva", "llame", "llama", "pida", "pide", "visite", "visita", "empiece", "empieza",
+                          "traiga", "trae", "use", "usa", "agende", "agenda", "pregunte", "pregunta", "envíe", "envie",
+                          "lea", "lee", "revise", "revisa", "venga", "ven", "vea", "contacte", "complete", "pase", "elija"],
+      "scenario_leads": ["cuando", "si", "imagine", "imagina", "es", "después", "despues", "antes", "cada", "este", "esta",
+                         "ese", "esa", "usted", "tú", "tu", "su"],
+      "h2_lead_words": ["cómo", "qué", "cuándo", "por", "puede", "debería", "cuál", "dónde"]
+    }
+  },
+  "gbp": {
+    "types": ["update", "service-spotlight", "how-to-tip", "local-tie-in", "faq-answer", "seasonal"],
+    "type_avoid_last": 3,
+    "axes": {
+      "opening": {"values": ["question", "fact", "scenario", "local-hook"], "avoid_last": 2},
+      "length_band": {"values": ["60-120", "120-220", "220-300"], "max_run": 2},
+      "closing": {"values": ["next-step", "question", "reassurance"], "avoid_last": 1},
+      "image": {"values": ["yes", "no"], "avoid_last": 0}
+    },
+    "char_limit": 1500,
+    "phone_in_text": false,
+    "same_claim_window_days": 60
+  }
+}

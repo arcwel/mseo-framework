@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "mseo.batch/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "batch_id",
+    "workspace",
+    "week",
+    "created",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mseo.batch/1"
+    },
+    "batch_id": {
+      "type": "string",
+      "pattern": "^[0-9]{8}T[0-9]{6}Z-[a-z0-9-]+-[0-9a-f]{4}$"
+    },
+    "workspace": {
+      "type": "string"
+    },
+    "week": {
+      "type": "string",
+      "pattern": "^\\d{4}-W\\d{2}$"
+    },
+    "created": {
+      "type": "string"
+    },
+    "source_run_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tracking_overridden": {
+      "type": "boolean",
+      "description": "propose ran with --ignore-tracking although the tracking gate failed"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "n",
+          "type",
+          "target",
+          "before",
+          "after",
+          "evidence",
+          "expected_metric",
+          "item_hash"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "enum": [
+              "negative_keyword",
+              "pause_keyword",
+              "pause_ad_group",
+              "budget",
+              "ad_schedule",
+              "location_setting",
+              "rsa_asset",
+              "brand_exclusion",
+              "conversion_setting",
+              "title_meta",
+              "sitemap",
+              "other"
+            ]
+          },
+          "target": {
+            "type": "object"
+          },
+          "before": {},
+          "after": {},
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "expected_metric": {
+            "type": "string"
+          },
+          "reversible": {
+            "type": "boolean",
+            "default": true
+          },
+          "note": {
+            "type": "string"
+          },
+          "item_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "rejected",
+              "applied",
+              "drifted",
+              "failed",
+              "measured"
+            ],
+            "default": "proposed"
+          },
+          "pasted_at": {
+            "type": "string",
+            "description": "UTC date the operator confirmed the rows were pasted into approved_changes (apply --confirm-pasted)"
+          },
+          "applied_at": {
+            "type": "string",
+            "description": "UTC date the Ads Script logged an ok result for the item (actions status, from applied_log)"
+          },
+          "measured": {
+            "type": "object",
+            "description": "loop measure: campaign metrics 4 weeks before and after applied_at"
+          }
+        }
+      }
+    }
+  }
+}

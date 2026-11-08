@@ -1,0 +1,7 @@
+"# mseo.ads_sheet/1","","","","","","","","","","","","",""
+"customer_id","222-333-4444","","","","","","","","","","","",""
+"period","2026-10-26","2026-11-01","","","","","","","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","","","","","","","",""
+"campaign.name","campaign.advertising_channel_type","campaign.status","campaign.bidding_strategy_type","campaign_budget.amount_micros","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions","metrics.conversions_value","metrics.phone_calls","metrics.search_impression_share","metrics.search_budget_lost_impression_share","metrics.search_rank_lost_impression_share"
+"Sample Checkups","SEARCH","ENABLED","MAXIMIZE_CLICKS","15000000","88400000","40","1500","3","0","0","0.5","0.1","0.2"
+"Sample Whitening","SEARCH","ENABLED","MANUAL_CPC","8000000","22000000","11","400","1","0","0","0.3","0.02","0.4"

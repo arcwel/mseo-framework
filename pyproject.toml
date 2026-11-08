@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mseo"
+version = "1.0.0"
+description = "Monthly search strategy service: customer-agnostic framework"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+classifiers = [
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = ["jsonschema>=4.23,<5"]
+
+[project.scripts]
+mseo = "mseo.cli:main_exit"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.14"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["mseo"]
+
+# The code resolves templates/ and workspace-template/ next to the package (Path(mseo.__file__).parents[1]), so the
+# installed tool (uv tool install) needs them in site-packages too. Only the shipped shapes, never a draft or a check record.
+[tool.hatch.build.targets.wheel.force-include]
+"templates" = "templates"
+"workspace-template" = "workspace-template"
+
+[tool.ruff]
+line-length = 130
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["F", "E9", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["F811"]  # pytest fixtures imported into a module are "redefined" by the test parameters that use them
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "mac_live: needs the Mac, Claude Code and Keychain",
+]
+addopts = "-m 'not mac_live'"

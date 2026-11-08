@@ -1,0 +1,14 @@
+# Business Profile post template: how-to-tip. Delete every line that starts with #. Rules: templates/posts/README.md.
+# Core: 100-300 words, under 1,500 characters, one idea, no phone number, no price or promise outside facts.json,
+# {{service}} named once, {{area}} named once, one plain "what to do next" line. Opening pattern: {{opening}}.
+# Length band: {{length_band}}. Closing: {{closing}}. Image: {{image}} (alt text in the sidecar).
+# Opening: a scenario sentence (season, weather, a common moment).
+###WRITE###
+
+# Three short steps the reader can do today. No tool or product names unless in facts.json.
+1. ###WRITE###
+2. ###WRITE###
+3. ###WRITE###
+
+# Closing line ({{closing}}).
+###WRITE###

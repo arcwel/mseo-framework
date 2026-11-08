@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(~/Projects/mseo-workspaces/**)",
+      "Edit(~/Projects/mseo-workspaces/**)",
+      "Read(~/.claude/projects/**)",
+      "Bash(security *)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": [
+        "~/Projects/mseo-workspaces"
+      ],
+      "allowWrite": [
+        "~/.cache/uv",
+        "~/.local/share/uv"
+      ]
+    }
+  }
+}

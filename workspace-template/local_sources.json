@@ -1,0 +1,32 @@
+{
+  "_help": "Official sources and towns for local research. Distances are straight-line miles from each address in customer.json. Add a source with the date it was checked.",
+  "radius_miles": 20,
+  "places": [
+    {
+      "name": "<Town>",
+      "type": "city|town|unincorporated|county",
+      "county": "<County>",
+      "miles": {
+        "<location label>": 0.0
+      },
+      "official_site": "https://<city>.gov/",
+      "checked": "YYYY-MM-DD"
+    }
+  ],
+  "agencies": [
+    {
+      "name": "<State transportation district>",
+      "url": "https://",
+      "use_for": "road work and closures",
+      "checked": "YYYY-MM-DD"
+    }
+  ],
+  "event_organizers": [
+    {
+      "name": "<Fairgrounds or chamber>",
+      "url": "https://",
+      "use_for": "event dates",
+      "checked": "YYYY-MM-DD"
+    }
+  ]
+}

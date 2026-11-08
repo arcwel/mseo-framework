@@ -1,0 +1,7 @@
+"# mseo.ads_sheet/1","","","","","",""
+"customer_id","222-333-4444","","","","",""
+"period","2026-10-26","2026-11-01","","","",""
+"generated","2026-11-02T10:05:00Z","","","","",""
+"campaign.name","ad_group.name","ad_group.status","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions"
+"Sample Checkups","Checkups","ENABLED","88400000","40","1500","3"
+"Sample Whitening","Whitening","ENABLED","22000000","11","400","1"

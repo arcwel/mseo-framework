@@ -1,0 +1,108 @@
+{
+  "_note": "Synthetic dental office. Different industry from fx, so no code can lean on auto body terms.",
+  "schema_version": "customer/2",
+  "slug": "fy",
+  "business": {
+    "name": "Sampleton Family Dental",
+    "phone": "(503) 555-0187",
+    "site": "https://example-dental.test",
+    "brand_terms": [
+      "\\bsampleton family dental\\b",
+      "\\bour practice\\b"
+    ],
+    "certifications": [
+      "Example Board of Dentistry Member"
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "tagline": "Gentle care for every age"
+      }
+    ]
+  },
+  "locations": [
+    {
+      "label": "Birch Street",
+      "address": "88 Birch St, Sampleton, OR 97000",
+      "footer": "Sampleton Family Dental • 88 Birch St, Sampleton"
+    }
+  ],
+  "identity": {
+    "email": "agent-fy@agency.example",
+    "kind": "google_account",
+    "chrome_profile": "mseo-fy",
+    "allow_shared": false
+  },
+  "timezone": "America/Los_Angeles",
+  "schedule": {
+    "weekly": {
+      "weekday": "Mon",
+      "time": "06:00"
+    }
+  },
+  "accounts": {
+    "google_ads": {
+      "id": "222-333-4444"
+    },
+    "ga4": {
+      "id": "987654321"
+    },
+    "business_profile": {
+      "id": "Sampleton Family Dental",
+      "enabled": false
+    }
+  },
+  "content": {
+    "wording": {
+      "never": [
+        "\\bpain(?:-|\\s)?free\\b",
+        "\\bpainless\\b"
+      ],
+      "always": {
+        "\\bpain(?:-|\\s)?free\\b": "comfortable",
+        "\\bpainless\\b": "comfortable"
+      }
+    },
+    "denylist_claims": [
+      "same-day crowns",
+      "walk-in",
+      "no insurance needed"
+    ],
+    "topic_bank": [
+      "Back-to-school dental checkups",
+      "What to do about a chipped tooth"
+    ],
+    "subject_brands": [
+      "invisalign",
+      "sonicare",
+      "oral-b",
+      "crest"
+    ],
+    "business_nouns": [
+      "office",
+      "practice"
+    ],
+    "claim_patterns": [
+      "\\bsame[- ]day\\b"
+    ],
+    "link_paths": {
+      "service": [
+        "/treatments/"
+      ]
+    }
+  },
+  "cms": {
+    "kind": "wordpress",
+    "site": "https://example-dental.test"
+  },
+  "local_research": {
+    "radius_miles": 10,
+    "research_dir": "research/local"
+  },
+  "posting": {
+    "business_profile_slots": [
+      "Tue 09:30",
+      "Fri 09:30"
+    ]
+  }
+}

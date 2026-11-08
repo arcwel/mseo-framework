@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mseo.outcome/1",
+  "title": "One scheduled job: what it did and how it ended",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "job_id", "workspace", "status", "scheduled_for", "started", "finished", "run_ids",
+               "identity_check", "identity_shared", "usage", "error"],
+  "properties": {
+    "schema_version": {"const": "mseo.outcome/1"},
+    "job_id": {"type": "string", "pattern": "^\\d{8}T\\d{6}Z-weekly-[0-9a-f]{4}$"},
+    "workspace": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "status": {"enum": ["ok", "partial", "refused", "not_run", "killed", "failed"]},
+    "scheduled_for": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+    "started": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+    "finished": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+    "run_ids": {"type": "array", "items": {"type": "string"}},
+    "identity_check": {"type": "object", "additionalProperties": {"type": "string"}},
+    "identity_shared": {"type": "boolean"},
+    "usage": {"type": ["object", "null"]},
+    "error": {"type": ["string", "null"]}
+  }
+}

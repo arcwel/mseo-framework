@@ -1,0 +1,7 @@
+"# mseo.ads_sheet/1","","","","","","",""
+"customer_id","222-333-4444","","","","","",""
+"period","2026-10-26","2026-11-01","","","","",""
+"generated","2026-11-02T10:05:00Z","","","","","",""
+"conversion_action.name","conversion_action.type","conversion_action.category","conversion_action.status","conversion_action.primary_for_goal","conversion_action.counting_type","conversion_action.origin","conversion_action.include_in_conversions_metric"
+"Appointment form","WEBPAGE","SUBMIT_LEAD_FORM","ENABLED","true","ONE_PER_CLICK","GOOGLE_ADS","true"
+"GA4 appointment_request","GOOGLE_ANALYTICS_4_CUSTOM","SUBMIT_LEAD_FORM","ENABLED","true","ONE_PER_CLICK","GOOGLE_ANALYTICS_4","true"

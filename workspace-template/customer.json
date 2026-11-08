@@ -1,0 +1,102 @@
+{
+  "_help": "Fill every <...> value; the loader refuses to run while any is left. Keys starting with _ are comments. See the framework README.",
+  "schema_version": "customer/2",
+  "_optional": "Keys the runbook adds later, all optional and documented in mseo/schema/customer.v2.json: accounts.google_ads.scripts_sheet_id (the Ads report Sheet), accounts.business_profile.check and identity_override (until the Manager grant), site_audit.psi_key_env and site_audit.indexnow_key, ads.negative_seed_list (a file under templates/ads/negatives/, default generic).",
+  "slug": "<slug>",
+  "business": {
+    "name": "<Business name>",
+    "phone": "<(NNN) NNN-NNNN>",
+    "site": "<https://domain>",
+    "brand_terms": [
+      "<regex for the business name, e.g. \\bacme dental\\b>"
+    ],
+    "certifications": [],
+    "languages": [
+      {
+        "code": "en",
+        "tagline": "<tagline>",
+        "faq_heading": "Frequently asked questions"
+      }
+    ],
+    "country": "US"
+  },
+  "locations": [
+    {
+      "label": "<Main office>",
+      "address": "<street, city, state zip>",
+      "footer": "<Name • street, city>"
+    }
+  ],
+  "identity": {
+    "email": "<agent identity email>",
+    "kind": "<workspace_user | google_account | existing>",
+    "chrome_profile": "<Chrome profile signed in as the identity>",
+    "allow_shared": false
+  },
+  "timezone": "<America/Los_Angeles>",
+  "schedule": {
+    "weekly": {
+      "weekday": "Mon",
+      "time": "06:00"
+    }
+  },
+  "accounts": {
+    "google_ads": {
+      "id": "<Google Ads customer ID, NNN-NNN-NNNN>"
+    },
+    "ga4": {
+      "id": "<GA4 property ID>"
+    },
+    "search_console": {
+      "id": "<sc-domain:domain>"
+    }
+  },
+  "content": {
+    "wording": {
+      "never": [
+        "<regex for a phrase never to use>"
+      ],
+      "always": {
+        "<the same regex>": "<phrase to use instead>"
+      }
+    },
+    "denylist_claims": [],
+    "topic_bank": [],
+    "subject_brands": [],
+    "_industry": "Industry vocabulary (claim patterns, sensitive terms, business nouns, brands, topics) lives in this file, never in framework code; the framework's vocabulary lint fails if it leaks in.",
+    "sensitive_terms": [],
+    "sensitive_reason": "<why these terms are risky on this platform, e.g. financial-services classifier>",
+    "claim_patterns": [],
+    "business_nouns": [
+      "shop",
+      "office",
+      "clinic",
+      "store",
+      "location",
+      "practice"
+    ],
+    "link_paths": {
+      "service": [
+        "/services/"
+      ],
+      "contact": [
+        "/contact/"
+      ],
+      "related_default": null
+    }
+  },
+  "cms": {
+    "kind": "wordpress",
+    "site": "<https://domain>"
+  },
+  "local_research": {
+    "radius_miles": 15,
+    "research_dir": "research/local"
+  },
+  "posting": {
+    "business_profile_slots": [
+      "Mon 10:00",
+      "Thu 10:00"
+    ]
+  }
+}

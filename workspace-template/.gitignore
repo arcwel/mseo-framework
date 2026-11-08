@@ -1,0 +1,8 @@
+.tmp/
+*.tmp
+.DS_Store
+# generated per machine by mseo workspace seal; they name sibling workspaces
+.claude/settings.json
+.mseo/
+# content log lock (mseo content log / publish)
+data/.*.lock

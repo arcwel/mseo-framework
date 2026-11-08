@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "mseo.week/1: one workspace's week, assembled from ok run records only (D1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workspace", "week", "period", "assembled", "sources"],
+  "properties": {
+    "schema_version": {"const": "mseo.week/1"},
+    "workspace": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "week": {"type": "string", "pattern": "^\\d{4}-W\\d{2}$"},
+    "period": {"type": "object", "required": ["start", "end", "tz"]},
+    "assembled": {"type": "string"},
+    "sources": {"type": "object", "additionalProperties": {
+      "type": "object",
+      "required": ["status", "run_id", "metrics"],
+      "properties": {
+        "status": {"enum": ["ok", "not available"]},
+        "run_id": {"type": ["string", "null"]},
+        "file": {"type": "string"},
+        "complete": {"type": "boolean"},
+        "identity_shared": {"type": "boolean"},
+        "reason": {"type": "string"},
+        "metrics": {"type": "object", "additionalProperties": {"type": ["number", "null"]}},
+        "by_channel": {"type": "object"},
+        "by_campaign": {"type": "object"}
+      }}}
+  }
+}

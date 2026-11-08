@@ -1,0 +1,143 @@
+{
+  "_note": "Synthetic auto body shop. Rewritten from the legacy content-check fixture's partner.json with the key map.",
+  "schema_version": "customer/2",
+  "slug": "fx",
+  "business": {
+    "name": "Fixture Auto Body",
+    "phone": "(707) 555-0142",
+    "site": "https://example-shop.test",
+    "brand_terms": [
+      "\\bfixture auto body\\b"
+    ],
+    "certifications": [
+      "Example Collision Certified"
+    ],
+    "languages": [
+      {
+        "code": "en",
+        "tagline": "Careful repairs, plain answers"
+      }
+    ]
+  },
+  "locations": [
+    {
+      "label": "Oak Road",
+      "address": "12 Oak Rd, Testville, CA 95000",
+      "footer": "Fixture Auto Body • 12 Oak Rd, Testville"
+    },
+    {
+      "label": "Elm Ave",
+      "address": "340 Elm Ave, Testville, CA 95001",
+      "footer": "Fixture Auto Body • 340 Elm Ave, Testville"
+    }
+  ],
+  "identity": {
+    "email": "agent-fx@agency.example",
+    "kind": "workspace_user",
+    "chrome_profile": "mseo-fx",
+    "allow_shared": false
+  },
+  "timezone": "America/Los_Angeles",
+  "schedule": {
+    "weekly": {
+      "weekday": "Mon",
+      "time": "06:00"
+    }
+  },
+  "accounts": {
+    "google_ads": {
+      "id": "111-222-3333"
+    },
+    "ga4": {
+      "id": "481516234"
+    },
+    "search_console": {
+      "id": "sc-domain:example-shop.test"
+    },
+    "open_seo": {
+      "id": "0f0f0f0f-1111-4222-8333-444455556666",
+      "adapter": "api",
+      "check": "manual"
+    },
+    "business_profile": {
+      "id": "1000200030004000500",
+      "adapter": "browser",
+      "check": "manual"
+    }
+  },
+  "content": {
+    "wording": {
+      "never": [
+        "\\bfree,?[\\s-]+(?:[\\w'-]+,?[\\s-]+){0,3}?(?:estimates?|quotes?)\\b"
+      ],
+      "always": {
+        "\\bfree,?[\\s-]+(?:[\\w'-]+,?[\\s-]+){0,3}?(?:estimates?|quotes?)\\b": "complimentary estimate"
+      }
+    },
+    "denylist_claims": [
+      "rental car",
+      "loaner car",
+      "walk-in",
+      "fixed repair date",
+      "we file the first insurance report"
+    ],
+    "topic_bank": [
+      "Rainy-season prep for Testville drivers",
+      "Harvest Fair parking-lot dings"
+    ],
+    "subject_brands": [
+      "nissan",
+      "hyundai",
+      "kia",
+      "jeep",
+      "dodge"
+    ],
+    "sensitive_terms": [
+      "^insur",
+      "^claim",
+      "^deductible",
+      "^adjuster",
+      "^coverage",
+      "^asegur",
+      "^seguro",
+      "^reclamo",
+      "^deducible",
+      "^ajustador",
+      "^póliza",
+      "^derechos",
+      "^rights"
+    ],
+    "sensitive_reason": "insurance or rights framing: financial-services classifier risk",
+    "claim_patterns": [
+      "\\b(?:lifetime|limited)\\s+warranty\\b",
+      "\\bonly shop\\b",
+      "\\bget your car (?:back )?right the first time\\b",
+      "\\bsame[- ]day\\b"
+    ],
+    "business_nouns": [
+      "shop"
+    ]
+  },
+  "cms": {
+    "kind": "wordpress",
+    "site": "https://example-shop.test"
+  },
+  "local_research": {
+    "radius_miles": 20,
+    "research_dir": "research/local"
+  },
+  "posting": {
+    "business_profile_slots": [
+      "Mon 10:00",
+      "Thu 10:00"
+    ]
+  },
+  "files": {
+    "rules": "RULES.md",
+    "facts": "facts.json",
+    "content_log": "data/content_log.json"
+  },
+  "budget": {
+    "weekly_tokens": 8000000
+  }
+}

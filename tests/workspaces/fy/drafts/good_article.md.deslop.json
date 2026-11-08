@@ -1,0 +1,1 @@
+{"file": "good_article.md", "sha256": "f5279a790089d69e1dadb3db13342d029c631c6dee560299ac71991c0c6590e5", "rewritten": true, "before": 3, "after": 5, "passed": true, "rival": "codex", "model": "gpt-5-codex", "humanizer_brief": "live", "error": null, "at": "2026-11-02T09:00:00-08:00"}

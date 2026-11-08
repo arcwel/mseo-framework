@@ -1,0 +1,52 @@
+{
+ "_help": "Seeds for a dental practice, on top of generic.json.",
+ "list": "dental",
+ "extends": "generic",
+ "negatives": [
+  {
+   "text": "hygienist",
+   "match": "broad",
+   "why": "job seekers"
+  },
+  {
+   "text": "assistant",
+   "match": "broad",
+   "why": "job seekers"
+  },
+  {
+   "text": "supplies",
+   "match": "broad",
+   "why": "product buyers"
+  },
+  {
+   "text": "toothpaste",
+   "match": "broad",
+   "why": "product buyers"
+  },
+  {
+   "text": "kit",
+   "match": "broad",
+   "why": "DIY kits"
+  },
+  {
+   "text": "medicaid",
+   "match": "broad",
+   "why": "adjust if accepted"
+  },
+  {
+   "text": "veterinary",
+   "match": "broad",
+   "why": "pets"
+  },
+  {
+   "text": "dog",
+   "match": "broad",
+   "why": "pets"
+  },
+  {
+   "text": "cat",
+   "match": "broad",
+   "why": "pets"
+  }
+ ]
+}

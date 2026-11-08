@@ -1,0 +1,762 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mseo.invalid/schema/customer.v2.json",
+  "title": "customer.json v2",
+  "description": "One customer's workspace config. Keys starting with _ are comments. Fields marked x-identifying are searched for in the framework by the customer-string lint.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^_": {}
+  },
+  "required": [
+    "schema_version",
+    "slug",
+    "business",
+    "locations",
+    "identity",
+    "timezone",
+    "accounts",
+    "content",
+    "cms",
+    "posting"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^customer/\\d+$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,30}$"
+    },
+    "business": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "name",
+        "phone",
+        "site",
+        "brand_terms"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/text",
+          "x-identifying": true
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^(\\+[1-9]\\d{6,14}|\\(\\d{3}\\) \\d{3}-\\d{4})$",
+          "x-identifying": true
+        },
+        "site": {
+          "$ref": "#/$defs/https_url",
+          "x-identifying": true
+        },
+        "brand_terms": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/regex"
+          },
+          "x-identifying": true
+        },
+        "certifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "default": []
+        },
+        "languages": {
+          "type": "array",
+          "default": [
+            {
+              "code": "en"
+            }
+          ],
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+              "^_": {}
+            },
+            "required": [
+              "code"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "pattern": "^[a-z]{2}$"
+              },
+              "tagline": {
+                "$ref": "#/$defs/text"
+              },
+              "faq_heading": {
+                "$ref": "#/$defs/text",
+                "description": "The FAQ H2 text in this language (defaults exist for en and es)."
+              }
+            }
+          }
+        },
+        "schema_type": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z]{2,40}$",
+          "default": "LocalBusiness",
+          "description": "schema.org type for the site-wide business markup, e.g. a schema.org LocalBusiness subtype for the trade."
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "default": "US",
+          "description": "ISO 3166-1 alpha-2 country of the business; addressCountry in the business schema."
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "patternProperties": {
+          "^_": {}
+        },
+        "required": [
+          "label",
+          "address",
+          "footer"
+        ],
+        "properties": {
+          "label": {
+            "$ref": "#/$defs/text"
+          },
+          "address": {
+            "$ref": "#/$defs/text",
+            "x-identifying": true
+          },
+          "footer": {
+            "$ref": "#/$defs/text",
+            "x-identifying": true
+          },
+          "city": {
+            "$ref": "#/$defs/text",
+            "description": "The location's city. Default: the token before ', ST zip' in the address."
+          }
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "email",
+        "kind",
+        "chrome_profile"
+      ],
+      "description": "The Google identity every pull runs as, chosen by the operator (D1).",
+      "properties": {
+        "email": {
+          "$ref": "#/$defs/email",
+          "x-identifying": true
+        },
+        "kind": {
+          "enum": [
+            "workspace_user",
+            "google_account",
+            "existing"
+          ]
+        },
+        "chrome_profile": {
+          "$ref": "#/$defs/text"
+        },
+        "allow_shared": {
+          "type": "boolean",
+          "default": false
+        },
+        "chrome_device": {
+          "$ref": "#/$defs/chrome_device"
+        }
+      }
+    },
+    "timezone": {
+      "type": "string",
+      "pattern": "^[A-Za-z_]+(/[A-Za-z0-9_+-]+)*$"
+    },
+    "schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "default": {},
+      "properties": {
+        "weekly": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^_": {}
+          },
+          "default": {},
+          "properties": {
+            "weekday": {
+              "enum": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+              ],
+              "default": "Mon"
+            },
+            "time": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+              "default": "06:00"
+            }
+          }
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "weekly_tokens"
+      ],
+      "properties": {
+        "weekly_tokens": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "accounts": {
+      "type": "object",
+      "patternProperties": {
+        "^_": {}
+      },
+      "propertyNames": {
+        "pattern": "^(_.*|[a-z][a-z0-9_]{1,30})$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/account"
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "wording"
+      ],
+      "properties": {
+        "wording": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^_": {}
+          },
+          "required": [
+            "never",
+            "always"
+          ],
+          "properties": {
+            "never": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/regex"
+              }
+            },
+            "always": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        },
+        "denylist_claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "default": []
+        },
+        "topic_bank": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "default": []
+        },
+        "subject_brands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "default": []
+        },
+        "sensitive_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/regex"
+          },
+          "default": [],
+          "description": "Regexes for terms whose heavy use trips a platform classifier (financial, medical, legal). Empty disables the check."
+        },
+        "sensitive_density": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.05
+        },
+        "sensitive_reason": {
+          "$ref": "#/$defs/text",
+          "default": "sensitive framing (classifier risk)"
+        },
+        "claim_patterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/regex"
+          },
+          "default": [],
+          "description": "Extra claim-like phrases facts.json must cover, beyond the generic numbers, prices, years and superlatives."
+        },
+        "business_nouns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "minItems": 1,
+          "default": [
+            "shop",
+            "office",
+            "clinic",
+            "store",
+            "location",
+            "practice"
+          ],
+          "description": "How the copy refers to the place of business; builds the phone, hours and address context checks."
+        },
+        "link_paths": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^_": {}
+          },
+          "default": {},
+          "description": "Site paths the internal-link rule recognises (matched by path prefix, trailing slash aside). content new fills {{links.service}} and {{links.contact}} from the first entry of each list.",
+          "properties": {
+            "service": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/sitepath"
+              },
+              "default": [
+                "/services/"
+              ]
+            },
+            "contact": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/sitepath"
+              },
+              "default": [
+                "/contact/",
+                "/estimate/",
+                "/book/",
+                "/appointment/"
+              ]
+            },
+            "related_default": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^(/\\S*|https://[A-Za-z0-9.-]+(:\\d+)?(/\\S*)?)$",
+              "default": null,
+              "description": "{{links.related}} when data/wp_posts.json lists no post and --related-url is not given."
+            }
+          }
+        }
+      }
+    },
+    "cms": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "kind",
+        "site"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "wordpress"
+          ]
+        },
+        "site": {
+          "$ref": "#/$defs/https_url",
+          "x-identifying": true
+        },
+        "allow_other_site": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "local_research": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "default": {},
+      "properties": {
+        "radius_miles": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200,
+          "default": 15
+        },
+        "research_dir": {
+          "$ref": "#/$defs/relpath",
+          "default": "research"
+        },
+        "sources": {
+          "$ref": "#/$defs/relpath",
+          "default": "local_sources.json"
+        }
+      }
+    },
+    "posting": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "business_profile_slots"
+      ],
+      "properties": {
+        "business_profile_slots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) ([01]\\d|2[0-3]):[0-5]\\d$"
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "default": {},
+      "properties": {
+        "rules": {
+          "$ref": "#/$defs/relpath",
+          "default": "RULES.md"
+        },
+        "facts": {
+          "$ref": "#/$defs/relpath",
+          "default": "facts.json"
+        },
+        "content_log": {
+          "$ref": "#/$defs/relpath",
+          "default": "data/content_log.json"
+        },
+        "wp_posts": {
+          "$ref": "#/$defs/relpath",
+          "default": "data/wp_posts.json"
+        },
+        "local_sources": {
+          "$ref": "#/$defs/relpath",
+          "default": "local_sources.json"
+        }
+      }
+    },
+    "ads": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "default": {},
+      "properties": {
+        "waste_threshold_usd": {
+          "type": "number",
+          "minimum": 0,
+          "default": 50,
+          "description": "Search terms with at least this much spend and no conversions are proposed as negatives."
+        },
+        "min_clicks_before_pause": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 30,
+          "description": "Keywords with this many clicks and no conversions are proposed for pause."
+        },
+        "offer_terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "default": [],
+          "description": "Offers ad copy should carry (checked against RSA assets)."
+        },
+        "negative_seed_list": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{1,30}$",
+          "default": "generic",
+          "description": "A list under templates/ads/negatives/<name>.json."
+        },
+        "brand_exclusions_expected": {
+          "type": "boolean",
+          "default": true
+        },
+        "tracking": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^_": {}
+          },
+          "default": {},
+          "properties": {
+            "phone_calls": {
+              "type": "boolean",
+              "default": true
+            },
+            "ga4_import": {
+              "type": "boolean",
+              "default": true
+            },
+            "enhanced_conversions": {
+              "type": "boolean",
+              "default": true
+            },
+            "primary_actions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/text"
+              },
+              "default": [],
+              "description": "Conversion action names that must be primary."
+            }
+          }
+        }
+      }
+    },
+    "site_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "default": {},
+      "properties": {
+        "indexnow_key": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]{8,128}$",
+          "description": "IndexNow key hosted at /<key>.txt; publish pings Bing when set."
+        },
+        "psi_key_env": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{2,40}$",
+          "default": "MSEO_PSI_KEY"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relpath"
+          },
+          "default": [],
+          "description": "Site paths to audit beyond / and the newest articles, e.g. contact/, services/."
+        }
+      }
+    },
+    "ai_visibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "default": {},
+      "properties": {
+        "prompts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "default": [],
+          "description": "Questions a customer would ask an AI assistant; checked monthly."
+        },
+        "engines": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "google_ai_mode",
+              "chatgpt",
+              "perplexity",
+              "gemini",
+              "copilot"
+            ]
+          },
+          "default": [
+            "google_ai_mode",
+            "chatgpt",
+            "perplexity"
+          ]
+        },
+        "competitors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/https_url"
+          },
+          "default": []
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "^<.*>$"
+      }
+    },
+    "https_url": {
+      "type": "string",
+      "pattern": "^https://[A-Za-z0-9.-]+(:\\d+)?(/\\S*)?$"
+    },
+    "regex": {
+      "type": "string",
+      "minLength": 1,
+      "format": "regex",
+      "not": {
+        "pattern": "^<.*>$"
+      }
+    },
+    "relpath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(^|/)\\.\\.(/|$)).+$"
+    },
+    "sitepath": {
+      "type": "string",
+      "pattern": "^/[A-Za-z0-9._~/-]*$"
+    },
+    "account": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^_": {}
+      },
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text",
+          "x-identifying": true
+        },
+        "adapter": {
+          "enum": [
+            "browser",
+            "export",
+            "api"
+          ],
+          "default": "browser"
+        },
+        "check": {
+          "enum": [
+            "auto",
+            "manual"
+          ],
+          "default": "auto"
+        },
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "identity_override": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^_": {}
+          },
+          "required": [
+            "email",
+            "chrome_profile",
+            "allow_shared",
+            "temporary",
+            "until"
+          ],
+          "description": "A temporary different identity for this one source, flagged by doctor and the watchdog.",
+          "properties": {
+            "email": {
+              "$ref": "#/$defs/email"
+            },
+            "chrome_profile": {
+              "$ref": "#/$defs/text"
+            },
+            "allow_shared": {
+              "const": true
+            },
+            "temporary": {
+              "const": true
+            },
+            "until": {
+              "$ref": "#/$defs/text"
+            },
+            "chrome_device": {
+              "$ref": "#/$defs/chrome_device"
+            }
+          }
+        },
+        "scripts_sheet_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{20,}$",
+          "description": "Google Ads only: the Sheet the account's mseo report script writes. Exports are attested by this ID."
+        },
+        "tables": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{1,30}$"
+          },
+          "description": "Extra report tables this source pulls beyond the default (e.g. ga4: landing_pages, key_events; search_console: generative_ai)."
+        }
+      }
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[^@\\s<>]+@[^@\\s<>]+\\.[A-Za-z]{2,}$"
+    },
+    "chrome_device": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "description": "The Claude in Chrome device ID of this identity's browser (list_connected_browsers); a pull selects it first."
+    }
+  }
+}

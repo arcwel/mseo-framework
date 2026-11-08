@@ -1,0 +1,12 @@
+# Business Profile post template: local-tie-in. Delete every line that starts with #. Rules: templates/posts/README.md.
+# Core: 100-300 words, under 1,500 characters, one idea, no phone number, no price or promise outside facts.json,
+# {{service}} named once, {{area}} named once, one plain "what to do next" line. Opening pattern: {{opening}}.
+# Length band: {{length_band}}. Closing: {{closing}}. Image: {{image}} (alt text in the sidecar).
+# Opening: the local fact from {{research.file}} ({{research.used}}), with the date if it is an event. No sponsorship wording.
+###WRITE###
+
+# What it means for drivers or residents in {{area}} and how {{service}} fits, two sentences, helpful not opportunistic.
+###WRITE###
+
+# Closing line ({{closing}}).
+###WRITE###

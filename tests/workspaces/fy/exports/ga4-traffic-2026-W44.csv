@@ -1,0 +1,24 @@
+# ----------------------------------------
+# Traffic acquisition: Session primary channel group (Default Channel Group)
+# Account: Sample Clinic
+# Property: Sample Clinic - GA4
+# ----------------------------------------
+#
+# Start date: 20261026
+# End date: 20261101
+
+Date,Session primary channel group (Default Channel Group),Sessions,Engaged sessions,Key events,Total users
+20261026,Organic Search,40,37,1,39
+20261026,Direct,20,20,0,20
+20261027,Organic Search,41,38,1,40
+20261027,Direct,21,20,0,21
+20261028,Organic Search,42,39,1,41
+20261028,Direct,22,20,0,22
+20261029,Organic Search,43,40,1,42
+20261029,Direct,23,20,0,23
+20261030,Organic Search,44,41,1,43
+20261030,Direct,24,20,0,24
+20261031,Organic Search,45,42,1,44
+20261031,Direct,25,20,0,25
+20261101,Organic Search,46,43,1,45
+20261101,Direct,26,20,0,26

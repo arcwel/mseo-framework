@@ -1,0 +1,8 @@
+"# mseo.ads_sheet/1","","","","","",""
+"customer_id","222-333-4444","","","","",""
+"period","2026-10-26","2026-11-01","","","",""
+"generated","2026-11-02T10:05:00Z","","","","",""
+"campaign.name","segments.day_of_week","segments.hour","metrics.cost_micros","metrics.clicks","metrics.impressions","metrics.conversions"
+"Sample Checkups","MONDAY","9","44200000","20","750","2"
+"Sample Checkups","WEDNESDAY","9","44200000","20","750","1"
+"Sample Whitening","FRIDAY","13","22000000","11","400","1"

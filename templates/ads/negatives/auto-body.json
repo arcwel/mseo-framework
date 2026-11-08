@@ -1,0 +1,67 @@
+{
+ "_help": "Seeds for collision and auto body repair, on top of generic.json.",
+ "list": "auto-body",
+ "extends": "generic",
+ "negatives": [
+  {
+   "text": "parts",
+   "match": "broad",
+   "why": "parts buyers"
+  },
+  {
+   "text": "kit",
+   "match": "broad",
+   "why": "DIY kits"
+  },
+  {
+   "text": "paint",
+   "match": "exact",
+   "why": "product, not service"
+  },
+  {
+   "text": "wrap",
+   "match": "broad",
+   "why": "vinyl wrap shops"
+  },
+  {
+   "text": "junkyard",
+   "match": "broad",
+   "why": "salvage"
+  },
+  {
+   "text": "salvage",
+   "match": "broad",
+   "why": "salvage"
+  },
+  {
+   "text": "for sale",
+   "match": "phrase",
+   "why": "vehicle sales"
+  },
+  {
+   "text": "used cars",
+   "match": "phrase",
+   "why": "vehicle sales"
+  },
+  {
+   "text": "mechanic",
+   "match": "exact",
+   "why": "mechanical repair intent"
+  },
+  {
+   "text": "oil change",
+   "match": "phrase",
+   "why": "mechanical"
+  },
+  {
+   "text": "tires",
+   "match": "broad",
+   "why": "tire shops"
+  },
+  {
+   "text": "detailing",
+   "match": "broad",
+   "why": "detailing"
+  }
+ ]
+}

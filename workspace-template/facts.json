@@ -1,0 +1,32 @@
+{
+  "_note": "Verified claims this customer's copy may use. Each entry needs a source: a live page on the site with the check date, or the business's written confirmation.",
+  "claims": [
+    {
+      "claim": "<example: lifetime warranty>",
+      "source": "<https://site/page, checked YYYY-MM-DD>"
+    }
+  ],
+  "business": {
+    "checked": "<YYYY-MM-DD from the contact page URL>",
+    "phone": "<as shown on the site>",
+    "locations": [
+      {
+        "label": "<name>",
+        "address": "<street, city, state zip>"
+      }
+    ],
+    "hours": [
+      {
+        "days": "Mon-Fri",
+        "opens": "HH:MM",
+        "closes": "HH:MM"
+      }
+    ]
+  },
+  "author": {
+    "name": "<Author full name>",
+    "role": "<role at the business, e.g. owner, estimator>",
+    "url": "<https://domain/about/>"
+  },
+  "_author_note": "The byline every article carries (Article schema author). Must be a real person at the business with a bio page."
+}
