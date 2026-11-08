@@ -21,6 +21,9 @@ NOT_FOUND = 44  # security's exit code for "item could not be found"
 
 # What each source's payload must hold.
 PAYLOAD_KEYS = {"wordpress": ("site", "user", "app_password")}
+# Where the operator gets each credential; shown by `workspace init` before it asks.
+CREDENTIAL_HELP = {"wordpress": "an Application Password from WordPress > Users > the editor user > Application Passwords "
+                                "(name it mseo); the site is the one in cms.site"}
 
 
 class CredentialError(Exception):

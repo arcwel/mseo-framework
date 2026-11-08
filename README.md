@@ -45,10 +45,14 @@ After `git pull`, run `uv tool install --reinstall ~/Projects/mseo` so the insta
 ## A new customer, start to finish
 
 1. `mseo workspace new <slug>` creates the workspace repo from `workspace-template/`.
-2. Fill `customer.json` (every `<...>` value, the loader refuses to run while one is left), `facts.json` (only claims
-   the business confirmed in writing) and `RULES.md`. Industry vocabulary, claim patterns and brand names live in
-   `customer.json`, never in this repo: `mseo lint vocabulary` fails the build if they leak in.
-3. Store the WordPress application password: step 3 of the runbook.
+2. `mseo workspace init <slug>` asks for every unfilled value in `customer.json`, one at a time in file order,
+   checks each answer against the schema, asks for the WordPress application password with hidden input and stores
+   it in the Keychain, offers the optional keys, then runs doctor. Quit at any point and run it again: it asks only
+   what is still missing. `--set PATH=VALUE` changes one field later; `--answers FILE` fills the non-secret fields
+   from JSON for a scripted setup (secrets always prompt).
+3. Fill `facts.json` (only claims the business confirmed in writing) and `RULES.md`. Industry vocabulary, claim
+   patterns and brand names live in `customer.json`, never in this repo: `mseo lint vocabulary` fails the build if
+   they leak in.
 4. List every folder outside the workspaces root that holds this or any other customer's data in
    `~/.config/mseo/deny-read.txt`, one path per line. The seal denies them to the agent.
 5. `cd ~/Projects/mseo && bin/mseo workspace seal --workspace <slug> --pull-test`. The seal writes the workspace's
@@ -67,7 +71,7 @@ Start Claude Code sessions inside the workspace, never from `~` or this repo. Sc
 
 | Group | Commands |
 |---|---|
-| Workspace | `workspace new\|seal`, `doctor`, `secret set`, `identity profile\|check`, `capture verify` |
+| Workspace | `workspace new\|init\|seal`, `doctor`, `secret set`, `identity profile\|check`, `capture verify` |
 | Weekly data | `pull --source search_console\|ga4\|google_ads\|business_profile\|open_seo`, `run weekly`, `week assemble\|report`, `schedule generate\|watchdog`, `watchdog`, `heartbeat`, `alerts password`, `lock run`, `shadow compare` (optional: a week file against the totals the report pages showed) |
 | Google Ads | `ads script install`, `ads tracking`, `ads audit`, `actions propose\|approve\|apply\|status` |
 | Content | `content recipe\|new\|check\|lint\|wording\|dupes\|topics`, `content log article\|gbp`, `publish`, `loop verify-live\|measure` |

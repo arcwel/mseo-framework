@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mseo"
-version = "1.0.0"
+version = "1.1.0"
 description = "Monthly search strategy service: customer-agnostic framework"
 readme = "README.md"
 license = "MIT"

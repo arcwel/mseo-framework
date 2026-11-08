@@ -139,7 +139,8 @@ def test_every_unfilled_placeholder_is_listed_in_file_order(root):
         workspace.open("fx")
     msg = str(e.value)
     assert msg.startswith("customer.json: 3 value(s) still need filling in")
-    lines = msg.splitlines()[1:]
+    lines = msg.splitlines()[1:-1]  # the last line names the command that fills them
+    assert msg.splitlines()[-1] == "run: mseo workspace init fx"
     assert lines == ["  $.business.name: replace the <...> placeholder",
                      "  $.business.phone: replace the <...> placeholder",
                      "  $.cms.site: replace the <...> placeholder"], lines

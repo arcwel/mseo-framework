@@ -53,7 +53,7 @@ def cmd_new(args, ctx) -> int:
         print(f"error: git init failed: {proc.stderr.strip()}", file=sys.stderr)
         return EXIT_COULD_NOT_RUN
     resealed = seal_mod.reseal_all(exclude=slug, keychain=ctx.keychain, live_test=_live_test(args))
-    msgs = [f"created {target} (fill customer.json, then: mseo workspace seal --workspace {slug})"]
+    msgs = [f"created {target} (next: mseo workspace init {slug})"]
     msgs += [f"  re-sealed {s}: exit {r['code']}" + (f" ({r['error']})" if r.get("error") else "") for s, r in resealed.items()]
     # code 1 (a sibling not configured yet, or skipped) is tolerated; code 3 means a sealed sibling is now unsealed
     failed = sorted(s for s, r in resealed.items() if r.get("code") == EXIT_COULD_NOT_RUN)
@@ -77,6 +77,9 @@ def register(sub, parents) -> None:
     n.add_argument("slug")
     n.add_argument("--skip-live-test", action="store_true", help="Re-seal the others without the live agent test (seal stays not current)")
     n.set_defaults(func=cmd_new, command_id="workspace new")
+    from mseo.onboard import register_init
+
+    register_init(wsub, parents)
     s = wsub.add_parser("seal", parents=[parents.workspace, parents.json],
                         help="Write the agent settings, run the checks and the live agent test, record the seal")
     s.add_argument("--skip-live-test", action="store_true", help="Record the live test as skipped (doctor will fail)")

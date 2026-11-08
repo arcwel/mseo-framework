@@ -27,11 +27,12 @@ Check: `mseo doctor` shows the Sheet ID, and the first `google_ads` run record h
 
 In WordPress: Users > the editor user > Application Passwords > add `mseo`. Then:
 
-Write `{"site":"https://<domain>","user":"<username>","app_password":"<password>"}` to a file outside any repo (never
-on the command line: shell history keeps arguments), then:
+`mseo workspace init S` asks for it with hidden input and stores it. To store or replace it on its own, write
+`{"site":"https://<domain>","user":"<username>","app_password":"<password>"}` to a file outside any repo (never on
+the command line: shell history keeps arguments), then:
 
 ```bash
-mseo secret set --workspace S --source wordpress < wordpress.json && rm wordpress.json
+mseo secret set --workspace S --source wordpress --replace < wordpress.json && rm wordpress.json
 ```
 
 Check: `mseo doctor --workspace S` passes the credential check, and `mseo wp verify --workspace S` lists the capabilities.

@@ -226,6 +226,7 @@ def _describe(raw: dict, errors: list) -> str:
     if placeholders:
         lines.append(f"{CONFIG_FILE}: {len(placeholders)} value(s) still need filling in")
         lines += [f"  {e.json_path}: replace the <...> placeholder" for e in placeholders]
+        lines.append(f"run: mseo workspace init {raw.get('slug', '<slug>')}")
     if others and placeholders:
         lines.append(f"{CONFIG_FILE}: {len(others)} value(s) do not match the schema")
         lines += [f"  {e.json_path}: {e.message}" for e in others]

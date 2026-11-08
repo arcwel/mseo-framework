@@ -2,6 +2,18 @@
 
 Releases list what the software does, not the commits that got it there.
 
+## 1.1.0 (2026-11-08)
+
+### Guided onboarding
+- `workspace init SLUG` walks every unfilled value of `customer.json` in file order, validates each answer against
+  the schema rule for its path and asks again on a mismatch, asks for the WordPress application password with hidden
+  input and stores it in the Keychain, offers the optional keys the runbook adds later, then runs doctor. Re-running
+  asks only what is still missing. `--set PATH=VALUE` writes one field, `--answers FILE` fills the non-secret fields
+  from JSON, `--no-prompt` reports what is missing with exit 3. The config is saved after every accepted answer, so
+  Ctrl-D or Ctrl-C loses nothing. Exit 1 when doctor still reports a failed check, 3 when a value or credential is
+  missing.
+- Every command that stops on an unfilled placeholder now names that command.
+
 ## 1.0.0 (2026-11-08)
 
 First production release. One framework for any customer. Each customer lives in its own sealed workspace.

@@ -38,6 +38,10 @@ COMMANDS: dict[str, dict] = {
     "lint customer-strings": {"argv": ["lint", "customer-strings"], "exempt": True},
     "lint vocabulary": {"argv": ["lint", "vocabulary"], "exempt": True},
     "workspace new": {"argv": ["workspace", "new", "fz", "--skip-live-test"], "exempt": True},
+    # Operator onboarding (positional slug, like workspace new): writes only its own customer.json and Keychain item;
+    # its closing doctor report reads the siblings' customer.json for identity clashes, as doctor does.
+    "workspace init": {"argv": ["workspace", "init", "{ws}", "--no-prompt"], "exempt": True, "codes": (0, 1, 3),
+                       "fy_allowed": r"^open .*/fy/customer\.json$"},
     "workspace seal": {"argv": ["workspace", "seal", "--workspace", "{ws}", "--skip-live-test"],
                        "binaries": {"uv", "git"}, "codes": (0, 1),
                        # the seal lists the siblings, asks git for each one's origin remote and reads each one's
